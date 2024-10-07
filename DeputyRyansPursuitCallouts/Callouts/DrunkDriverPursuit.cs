@@ -5,7 +5,7 @@ using LSPD_First_Response.Mod.API;
 
 namespace DeputyRyansPursuitCallouts.Callouts
 {
-    [CalloutInterface("Drunk Driver Pursuit", CalloutProbability.Medium, "A driver is suspected of driving under the influence and is attempting to flee.", "Code 3", "LSPD")]
+    [CalloutInterface("Drunk Driver Pursuit", CalloutProbability.Medium, "A pursuit involving a drunk driver.", "Code 3", "LSPD")]
     public class DrunkDriverPursuit : Callout
     {
         private Vector3 spawnPoint;
@@ -17,19 +17,19 @@ namespace DeputyRyansPursuitCallouts.Callouts
         public override bool OnBeforeCalloutDisplayed()
         {
             spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(500f));
-            suspectVehicle = new Vehicle("PRIMO", spawnPoint);
+            suspectVehicle = new Vehicle("STANIER", spawnPoint);
 
             if (!suspectVehicle.Exists())
                 return false;
 
             suspect = suspectVehicle.CreateRandomDriver();
 
-            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 40f);
-            AddMinimumDistanceCheck(30f, spawnPoint);
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 30f);
+            AddMinimumDistanceCheck(50f, spawnPoint);
 
             CalloutMessage = "Drunk Driver Pursuit";
             CalloutPosition = spawnPoint;
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("CRIME_DRUNK_DRIVER_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("WE_HAVE CRIME_DRUNK_DRIVER");
 
             return base.OnBeforeCalloutDisplayed();
         }
@@ -39,9 +39,9 @@ namespace DeputyRyansPursuitCallouts.Callouts
             suspectBlip = suspectVehicle.AttachBlip();
             suspectBlip.IsFriendly = false;
 
-            suspect.Tasks.CruiseWithVehicle(suspectVehicle, 40f, VehicleDrivingFlags.Normal);
+            suspect.Tasks.CruiseWithVehicle(suspectVehicle, 70f, VehicleDrivingFlags.FollowTraffic);
 
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Officer, a driver suspected of DUI is attempting to flee. Use caution.");
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Officer, a pursuit involving a drunk driver is in progress. The suspect is driving erratically. Proceed with caution.");
 
             pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);

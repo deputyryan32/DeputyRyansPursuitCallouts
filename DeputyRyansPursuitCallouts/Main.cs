@@ -12,7 +12,6 @@ namespace DeputyRyansPursuitCallouts
             Functions.OnOnDutyStateChanged += OnDutyStateChanged;
             Game.LogTrivial("DeputyRyansPursuitCallouts has been initialized.");
 
-            // In-game notification log
             Game.DisplayNotification("3dtextures", "mpgroundlogo_cops", "DeputyRyansPursuitCallouts", "~g~Callouts Initialized", "All callouts have been successfully loaded.");
         }
 
@@ -20,7 +19,6 @@ namespace DeputyRyansPursuitCallouts
         {
             if (onDuty)
             {
-                // Register callouts when the player is on duty
                 Functions.RegisterCallout(typeof(ArmedRobberyGetaway));
                 Functions.RegisterCallout(typeof(DrunkDriverPursuit));
                 Functions.RegisterCallout(typeof(HitAndRunPursuit));
@@ -29,7 +27,6 @@ namespace DeputyRyansPursuitCallouts
                 Functions.RegisterCallout(typeof(PursuitInProgress));
                 Functions.RegisterCallout(typeof(RecklessDriverPursuit));
                 Functions.RegisterCallout(typeof(RoadRagePursuit));
-                Functions.RegisterCallout(typeof(StolenPoliceVehiclePursuit));
                 Functions.RegisterCallout(typeof(StolenVehiclePursuit));
                 Functions.RegisterCallout(typeof(VehicleTheftPursuit));
                 Functions.RegisterCallout(typeof(VehicleTheftPursuit2));
