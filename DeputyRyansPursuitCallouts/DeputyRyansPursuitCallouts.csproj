@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFECC424-865F-4380-9D2A-BF55FAA3C4C0}</ProjectGuid>
+    <ProjectGuid>{BBC57AC5-B33C-47A2-A14A-488B6B08AE70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DeputyRyansPursuitCallouts</RootNamespace>
@@ -50,13 +50,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CalloutInterfaceAPI">
-      <HintPath>..\..\..\Ref\CalloutInterfaceAPI.dll</HintPath>
+      <HintPath>..\..\Ref\CalloutInterfaceAPI.dll</HintPath>
     </Reference>
     <Reference Include="LSPD First Response">
-      <HintPath>..\..\..\Ref\LSPD First Response.dll</HintPath>
+      <HintPath>..\..\Ref\LSPD First Response.dll</HintPath>
     </Reference>
     <Reference Include="RagePluginHookSDK">
-      <HintPath>..\..\..\Ref\RagePluginHookSDK.dll</HintPath>
+      <HintPath>..\..\Ref\RagePluginHookSDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -72,12 +72,17 @@
     <Compile Include="Callouts\DrunkDriverPursuit.cs" />
     <Compile Include="Callouts\HitAndRunPursuit.cs" />
     <Compile Include="Callouts\LargeVehiclePursuit.cs" />
+    <Compile Include="Callouts\LargeVehiclePursuit2.cs" />
     <Compile Include="Callouts\PursuitInProgress.cs" />
     <Compile Include="Callouts\RecklessDriverPursuit.cs" />
+    <Compile Include="Callouts\RoadRagePursuit.cs" />
+    <Compile Include="Callouts\StolenPoliceVehiclePursuit.cs" />
     <Compile Include="Callouts\StolenVehiclePursuit.cs" />
     <Compile Include="Callouts\VehicleTheftPursuit.cs" />
+    <Compile Include="Callouts\VehicleTheftPursuit2.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionChecker\Version.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

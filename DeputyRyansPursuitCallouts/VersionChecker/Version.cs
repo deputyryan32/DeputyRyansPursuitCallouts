@@ -9,7 +9,7 @@ namespace DeputyRyansPursuitCallouts.VersionChecker
         // Check for updates
         public static bool IsUpdateAvailable()
         {
-            string curVersion = "Beta 4"; // Current version
+            string curVersion = "Beta 3"; // Current version
             Uri latestVersionUri = new Uri("https://www.lcpdfr.com/applications/downloadsng/interface/api.php?do=checkForUpdates&fileId=48930&textOnly=1"); // URL to store the current version
             WebClient webClient = new WebClient();
             string receivedData = string.Empty;
